@@ -5,15 +5,18 @@
 
 int main(void){
 
-    //Testing the 'create_student' fucntion with sample input data 
+    // testing the 'create_developer' fucntion with sample input data 
     const char dev1_name[20] = "Ferdinand";
     const char dev1_alias[20] = "Evil_Sert";
-    Developer dev = create_developer(dev1_name, dev1_alias);
+    const Developer dev = create_developer(dev1_name, dev1_alias);
     printf("Name: %s, Alias: %s\n", dev.name, dev.alias);
     
     
-    //Testing the 'print_main_menu' function
+    // testing the 'print_main_menu' function
     print_main_menu();
+
+    // Testing the 'print_developer' function
+    print_developer(&dev);
 
     return 0;
 }
