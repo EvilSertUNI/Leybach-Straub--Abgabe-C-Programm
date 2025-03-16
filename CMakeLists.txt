@@ -14,11 +14,16 @@ add_compile_options(-Wall -Wextra -Werror -pedantic -O0)
 # adding a library for the initialization function create_developer
 add_library(create_developer src/developer.c)
 
-# add the includes to the library
+# adding a library for the output functions
+add_library(output_functions src/output_functions.c)
+
+# add the includes to the libraries
 target_include_directories(create_developer PUBLIC include)
+target_include_directories(output_functions PUBLIC include)
+
 
 # add an executabel and assign files to it
 add_executable(exam src/main.c)
 
 # linking necessary libraries with the project
-target_link_libraries(exam create_developer)
+target_link_libraries(exam create_developer output_functions)

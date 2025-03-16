@@ -21,7 +21,7 @@ alias: Superman
 */
 
 // Initialising Developer structure and defining it directly by passing in the required data as pointers 
-Developer create_student(const char* name, const char* alias){
+Developer create_developer(const char* name, const char* alias){
     Developer dev = {.name = name, .alias = alias};
     return dev;
 }

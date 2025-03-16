@@ -7,6 +7,6 @@ typedef struct {
     const char* const alias;
 } Developer;
 
-Developer create_student(const char* name, const char* alias);
+Developer create_developer(const char* name, const char* alias);
 
 #endif
