@@ -17,20 +17,18 @@ void print_main_menu(void){
 }
 
 void print_developer(const Developer* dev){
-    printf("\033[4;92m========================\n");
+    printf("========================\n");
     printf("Developer:\n");                                     
     printf("name: %s\n", dev->name);
     printf("alias: %s\n", dev->alias);
-    printf("========================\033[0m\n");
+    printf("========================\n");
     return;
 }
 
 void print_logo(const Group_Logo* logo){
-    printf("\033[4;92m");
     printf("Developer Group:\n%s\n\n\n", logo -> group_logo);
     printf("%s\n\n\n", logo -> dev1_logo);
     printf("%s\n\n\n", logo -> dev2_logo);
-    printf("\033[0m\n");
 }
 
 
