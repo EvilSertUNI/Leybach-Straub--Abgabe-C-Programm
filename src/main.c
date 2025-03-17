@@ -28,23 +28,24 @@ int main(void){
     // Going into the programm (while) loop (UML-Diagramm)
     while (user_input != 4) {
         print_main_menu();
-	printf("Enter your selection: ");
-	scanf("%hd", &user_input);
-	if (user_input == 4) { // Doesn't proceed with the programm, if abort criteria is met
-	    break;
-	}
-	if (user_input ==2 || user_input == 3){ // Has to print the logo in case 2 and 3
-	    print_logo(&logo);
-	}
-	if (user_input == 1 || user_input == 3){ // Has to print developers in case 1 and 3
-	    printf("***********************\n");
-	    print_developer(&dev1);
-	    print_developer(&dev2);
-	    printf("***********************\n");
-	}
-    } 
-
+        printf("Enter your selection: ");
+        scanf("%hd", &user_input);
+        if (user_input == 4) { // Doesn't proceed with the programm, if abort criteria is met
+            break;
+        }
+        if (user_input ==2 || user_input == 3){ // Has to print the logo in case 2 and 3
+            print_logo(&logo);
+        }
+        if (user_input == 1 || user_input == 3){ // Has to print developers in case 1 and 3
+            printf("***********************\n");
+            print_developer(&dev1);
+            print_developer(&dev2);
+            printf("***********************\n");
+        }
+        else {
+        printf("Invalid Input, try again.\n"); //Gives error message if input doesn't fit parameters
+        }
+    }
     return 0;
+
 }
-
-
