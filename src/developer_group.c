@@ -1,13 +1,13 @@
 #include "developer_group.h"
-#include <stdio.h>
 #include "pointer_utils.h"
 
+// Function, that produces Group_Logo struct with specific input data
 Group_Logo create_group_logo(const char* caption, const char* logo1, const char* logo2) {
     // Validating input data
     check_pointer(caption);
     check_pointer(logo1);
     check_pointer(logo2);
-    Group_Logo logo = {.group_logo = caption, .dev1_logo = logo1, .dev2_logo = logo2}; // Creating Group_Logo struc with input data
+    Group_Logo logo = {.group_logo = caption, .dev1_logo = logo1, .dev2_logo = logo2};
     return logo;
 }
 

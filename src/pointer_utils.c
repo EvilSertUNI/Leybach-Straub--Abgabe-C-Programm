@@ -1,7 +1,7 @@
 #include "pointer_utils.h"
 #include <stdio.h>
 
-
+// Function, that checks if a pointer is a NULL pointer and then produces an error
 void check_pointer(const void* ptr){
   if (ptr == NULL) {
         printf("ERROR: NULL pointer detected\n"

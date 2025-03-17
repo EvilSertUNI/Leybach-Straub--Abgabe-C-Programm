@@ -3,7 +3,7 @@
 #include "pointer_utils.h"
 
 
-// Printing main menu
+// Prints main menu
 void print_main_menu(void){
     printf("\033[4;92m========================\n");
     printf("Choose your action: \n");
@@ -12,11 +12,11 @@ void print_main_menu(void){
     printf("Print Group \t\t[3]\n");
     printf("Exit \t\t\t[4]\n");
     printf("========================\033[0m\n");
-    //printf("Enter your selection: ");
+    printf("Enter your selection: ");
     return;
 }
 
-// Printing Developer struct
+// Prints Developer struct
 void print_developer(const Developer* dev){
     check_pointer(dev);
     printf("========================\n");
@@ -27,7 +27,7 @@ void print_developer(const Developer* dev){
     return;
 }
 
-// Printing Group_Logo struct
+// Prints Group_Logo struct
 void print_logo(const Group_Logo* logo){
     check_pointer(logo);
     printf("Developer Group:\n%s\n\n\n", logo -> group_logo);
