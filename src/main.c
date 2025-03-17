@@ -25,15 +25,29 @@ int main(void){
     short int user_input = 0;
 
 
-    // Going into the programm (while) loop (UML-Diagramm)
+    // Going into the programm (while-) loop (UML-diagram)
     while (user_input != 4) {
-        print_main_menu();
-        printf("Enter your selection: ");
-        scanf("%hd", &user_input);
+        char input_status;
+	const char error_message[] = "That was not a valid input!\n";
+	do {
+	    print_main_menu();
+	    printf("Enter your selection: ");
+	    input_status = scanf("%hd", &user_input);
+
+	    if (input_status != 1) { // Checks whether exactly 1 value has been successfully read
+	        if (input_status < 1) {
+		  printf("%s", error_message); //Produces error message if input isn't a number
+		}
+	    } while (getchar() != '\n'); // Cleaning input buffer by reading until encountering newline  
+	} while (input_status != 1); // Repeats, until input is correct (In terms of type)
         if (user_input == 4) { // Doesn't proceed with the programm, if abort criteria is met
             break;
         }
-        if (user_input ==2 || user_input == 3){ // Has to print the logo in case 2 and 3
+	if (user_input != 1 && user_input != 2 && user_input != 3) {
+	    printf("%s", error_message); //Produces error message if input number doesn't fit parameters
+	    continue;
+	}
+        if (user_input == 2 || user_input == 3){ // Has to print the logo in case 2 and 3
             print_logo(&logo);
         }
         if (user_input == 1 || user_input == 3){ // Has to print developers in case 1 and 3
@@ -41,9 +55,6 @@ int main(void){
             print_developer(&dev1);
             print_developer(&dev2);
             printf("***********************\n");
-        }
-        else {
-        printf("Invalid Input, try again.\n"); //Gives error message if input doesn't fit parameters
         }
     }
     return 0;

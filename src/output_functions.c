@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "output_functions.h"
-
+#include "pointer_utils.h"
 
 
 // Printing main menu
@@ -16,7 +16,9 @@ void print_main_menu(void){
     return;
 }
 
+// Printing Developer struct
 void print_developer(const Developer* dev){
+    check_pointer(dev);
     printf("========================\n");
     printf("Developer:\n");                                     
     printf("name: %s\n", dev->name);
@@ -25,7 +27,9 @@ void print_developer(const Developer* dev){
     return;
 }
 
+// Printing Group_Logo struct
 void print_logo(const Group_Logo* logo){
+    check_pointer(logo);
     printf("Developer Group:\n%s\n\n\n", logo -> group_logo);
     printf("%s\n\n\n", logo -> dev1_logo);
     printf("%s\n\n\n", logo -> dev2_logo);

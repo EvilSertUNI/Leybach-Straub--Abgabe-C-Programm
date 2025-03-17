@@ -1,33 +1,24 @@
-# define the minimum cmake version
+# Define the minimum CMake version
 cmake_minimum_required(VERSION 3.20)
 
-# define the project name
+# Define the project name
 project(Abgabe-C--Leybach-Straub)
 
-# define the c standard version
+# Define the C standard version
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
-# add some compile options
+# Add some compile options
 add_compile_options(-Wall -Wextra -Werror -pedantic -O0)
 
-# adding a library for the initialization function create_developer
-add_library(create_developer src/developer.c)
+# Add a single library with all source files
+add_library(developer_library src/developer.c src/developer_group.c src/output_functions.c src/pointer_utils.c)
 
-# adding a library for the initialization function create_logo
-add_library(create_logo src/developer_group.c)
+# Add the includes to the library
+target_include_directories(developer_library PUBLIC include)
 
-# adding a library for the output functions
-add_library(output_functions src/output_functions.c)
-
-# add the includes to the libraries
-target_include_directories(create_developer PUBLIC include)
-target_include_directories(create_logo PUBLIC include)
-target_include_directories(output_functions PUBLIC include)
-
-
-# add an executable and assign files to it
+# Add an executable and assign files to it
 add_executable(exam src/main.c)
 
-# linking necessary libraries with the project
-target_link_libraries(exam create_developer create_logo output_functions)
+# Link the single library with the project
+target_link_libraries(exam developer_library)
