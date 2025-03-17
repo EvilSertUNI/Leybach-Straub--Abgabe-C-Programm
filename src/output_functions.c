@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "developer.h"
+#include "output_functions.h"
+
 
 
 // Printing main menu
@@ -15,26 +16,20 @@ void print_main_menu(void){
     return;
 }
 
-/*
-***********************
-=====================
-Developer: 
-name: Selina Kyle
-alias: Catwoman
-=====================
-*/
-
 void print_developer(const Developer* dev){
     printf("\033[4;92m========================\n");
     printf("Developer:\n");                                     
     printf("name: %s\n", dev->name);
     printf("alias: %s\n", dev->alias);
     printf("\033[4;92m========================\n");
-    
     return;
 }
 
-
+void print_logo(const Group_Logo* logo){
+    printf("Developer Group:\n%s\n", logo -> group_logo);
+    printf("%s\n", logo -> dev1_logo);
+    printf("%s\n", logo -> dev2_logo);
+}
 
 
 
