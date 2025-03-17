@@ -26,9 +26,9 @@ void print_developer(const Developer* dev){
 }
 
 void print_logo(const Group_Logo* logo){
-    printf("Developer Group:\n%s\n", logo -> group_logo);
-    printf("%s\n", logo -> dev1_logo);
-    printf("%s\n", logo -> dev2_logo);
+    printf("Developer Group:\n%s\n\n\n", logo -> group_logo);
+    printf("%s\n\n\n", logo -> dev1_logo);
+    printf("%s\n\n\n", logo -> dev2_logo);
 }
 
 

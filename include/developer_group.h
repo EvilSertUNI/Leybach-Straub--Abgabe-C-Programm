@@ -6,7 +6,7 @@ typedef struct{
     const char* dev2_logo;
 }Group_Logo;
 
-Group_Logo create_group_logo(const char* group_caption, const char* developer1_logo, const char* developer2_logo);
+Group_Logo create_group_logo(const char* caption, const char* logo1, const char* logo2);
 
 
 #endif
