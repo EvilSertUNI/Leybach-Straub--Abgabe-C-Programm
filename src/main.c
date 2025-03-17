@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "developer.h"
+#include "choice.h"
 
 int main(void){
 
@@ -8,18 +9,11 @@ int main(void){
     const char dev1_alias[20] = "Evil_Sert";
     Developer dev = create_student(dev1_name, dev1_alias);
     printf("Name: %s, Alias: %s\n", dev.name, dev.alias);
+
+    //Test the main_menu function with sample_values
+    int test_choice;
+    main_menu(&test_choice);
+
     return 0;
-
-/*
-    printf("\033[4;92m========================\n");
-    printf("Choose your action: \n");
-    printf("List Developers \t[1]\n");
-    printf("Print Group Logo \t[2]\n");
-    printf("Print Group \t\t[3]\n");
-    printf("Exit \t\t\t[4]\n");
-    printf("========================\033[0m\n");
-
-    printf("Enter your selection: ");
-*/
 }
 

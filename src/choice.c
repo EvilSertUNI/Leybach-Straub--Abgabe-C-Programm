@@ -37,12 +37,5 @@ void main_menu(int *input_ptr)
             break;
             }
 
-    //Test the function with sample_values
-
-    int *test_ptr;
-    int test_coice = 4;
-    test_ptr = &test_coice;
-    main_menu(test_ptr);
-
     return;
 }
