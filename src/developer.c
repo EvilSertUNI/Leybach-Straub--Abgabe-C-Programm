@@ -1,5 +1,4 @@
-#include "developer.h"
-#include "pointer_utils.h"
+#include "developer_library.h"
 
 // Initialising Developer structure and defining it directly by passing in the required data as pointers
 Developer create_developer(const char* name, const char* alias) {

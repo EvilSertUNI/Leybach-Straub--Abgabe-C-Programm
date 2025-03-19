@@ -1,5 +1,4 @@
-#include "developer_group.h"
-#include "pointer_utils.h"
+#include "developer_library.h"
 
 // Function, that produces Group_Logo struct with specific input data
 Group_Logo create_group_logo(const char* caption, const char* logo1, const char* logo2) {

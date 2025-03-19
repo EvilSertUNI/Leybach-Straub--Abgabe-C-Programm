@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include "output_functions.h"
-#include "pointer_utils.h"
+#include "developer_library.h"
 
 // Prints main menu
 void print_main_menu(void) {

@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include "developer.h"
-#include "output_functions.h"
-#include "developer_group.h"
+#include "developer_library.h"
 
 enum { sel_invalid=0, sel_developers, sel_group_logo, sel_group, sel_exit};
 
@@ -17,11 +15,6 @@ int main(void) {
     const char dev2_name[20] = "Simon";
     const char dev2_alias[20] = "Der Allgäuer";
     const Developer dev2 = create_developer(dev2_name, dev2_alias);
-
-    // Importing group logo data for group logo creation
-    extern const char group_caption[];
-    extern const char developer1_logo[];
-    extern const char developer2_logo[];
 
     // Creating the actual logo struct
     const Group_Logo logo = create_group_logo(group_caption, developer1_logo, developer2_logo);
