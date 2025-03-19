@@ -29,18 +29,18 @@ int main(void) {
     // Going into the programm (while-) loop (UML-diagram)
     while (1 == 1) {
         int user_input; // |:ws:| plain int is handled most efficiently by CPU. No need to use special integer size
-        int input_status; // |:ws:| prototype: int scanf()
+        int input_count; // |:ws:| prototype: int scanf() return value: `number of input  items .. matched  and  assigned`
         const char error_message[] = "That was not a valid input!\n";
         do {
             print_main_menu();
-            input_status = scanf("%d", &user_input);
+            input_count = scanf("%d", &user_input);
 
-            if (input_status != 1) { // Checks whether exactly 1 value has been successfully read
-                if (input_status < 1) {
+            if (input_count != 1) { // Checks whether exactly 1 value has been successfully read
+                if (input_count < 1) {
                 printf("%s", error_message); //Produces error message if input isn't a number
                 }
             } while (getchar() != '\n'); // Cleaning input buffer by reading until encountering newline
-        } while (input_status != 1); // Repeats, until input is correct (In terms of type)
+        } while (input_count != 1); // Repeats, until input is correct (In terms of type)
 
         // Doesn't proceed with the programm, if abort criteria is met
         if (user_input == sel_exit) {
