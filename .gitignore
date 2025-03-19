@@ -1,2 +1,7 @@
 doc-code.txt
 build
+/.eIDE
+/.newer
+/.sync.rc
+/TAGS
+*~
