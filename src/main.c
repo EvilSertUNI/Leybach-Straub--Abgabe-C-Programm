@@ -3,6 +3,11 @@
 #include "output_functions.h"
 #include "developer_group.h"
 
+enum { sel_invalid=0, sel_developers, sel_group_logo, sel_group, sel_exit};
+
+static const int sel_min = sel_developers;
+static const int sel_max = sel_exit;
+
 int main(void) {
 
     // Defining developer names and creating the developer structs with it
@@ -21,11 +26,9 @@ int main(void) {
     // Creating the actual logo struct
     const Group_Logo logo = create_group_logo(group_caption, developer1_logo, developer2_logo);
 
-    // Declaring Input Variable and setting it to 0, so the programm just goes through
-    short int user_input = 0;
-
     // Going into the programm (while-) loop (UML-diagram)
-    while (user_input != 4) {
+    while (1 == 1) {
+        short int user_input;
         char input_status;
         const char error_message[] = "That was not a valid input!\n";
         do {
@@ -38,17 +41,25 @@ int main(void) {
                 }
             } while (getchar() != '\n'); // Cleaning input buffer by reading until encountering newline
         } while (input_status != 1); // Repeats, until input is correct (In terms of type)
-        if (user_input == 4) { // Doesn't proceed with the programm, if abort criteria is met
+
+        // Doesn't proceed with the programm, if abort criteria is met
+        if (user_input == sel_exit) {
             break;
         }
-        if (user_input != 1 && user_input != 2 && user_input != 3) {
+
+        //Produce error message if input number doesn't fit allowed parameters
+        if (user_input < sel_min || user_input > sel_max) {
             printf("%s", error_message); //Produces error message if input number doesn't fit parameters
-            continue; // Jumps back to the Beginning of the loop
+            continue;
         }
-        if (user_input == 2 || user_input == 3){ // Prints the logo in case 2 and 3
+
+        // Print the logo for cases sel_group_logo and sel_group
+        if (user_input == sel_group_logo || user_input == sel_group){
             print_logo(&logo);
         }
-        if (user_input == 1 || user_input == 3){ // Prints developers in case 1 and 3
+
+        // Prints developers for cases sel_developers and sel_group
+        if (user_input == sel_developers || user_input == sel_group){
             printf("***********************\n");
             print_developer(&dev1);
             print_developer(&dev2);
