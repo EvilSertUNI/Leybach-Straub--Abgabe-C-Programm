@@ -28,12 +28,12 @@ int main(void) {
 
     // Going into the programm (while-) loop (UML-diagram)
     while (1 == 1) {
-        short int user_input;
-        char input_status;
+        int user_input; // |:ws:| plain int is handled most efficiently by CPU. No need to use special integer size
+        int input_status; // |:ws:| prototype: int scanf()
         const char error_message[] = "That was not a valid input!\n";
         do {
             print_main_menu();
-            input_status = scanf("%hd", &user_input);
+            input_status = scanf("%d", &user_input);
 
             if (input_status != 1) { // Checks whether exactly 1 value has been successfully read
                 if (input_status < 1) {
