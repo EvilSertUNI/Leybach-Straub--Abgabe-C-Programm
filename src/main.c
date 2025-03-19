@@ -30,16 +30,19 @@ int main(void) {
     while (1 == 1) {
         int user_input; // |:ws:| plain int is handled most efficiently by CPU. No need to use special integer size
         int input_count; // |:ws:| prototype: int scanf() return value: `number of input  items .. matched  and  assigned`
-        const char error_message[] = "That was not a valid input!\n";
         do {
             print_main_menu();
             input_count = scanf("%d", &user_input);
 
-            if (input_count != 1) { // Checks whether exactly 1 value has been successfully read
+            // if (exactly 1 value has been successfully read?) then (yes)
+            if (input_count != 1) {
                 if (input_count < 1) {
-                printf("%s", error_message); //Produces error message if input isn't a number
+                    // error message
+                    printf("Invalid input count! (%d)\n", input_count);
                 }
-            } while (getchar() != '\n'); // Cleaning input buffer by reading until encountering newline
+            }
+            // Cleaning input buffer by reading until encountering newline
+            while (getchar() != '\n') {};
         } while (input_count != 1); // Repeats, until input is correct (In terms of type)
 
         // Doesn't proceed with the programm, if abort criteria is met
@@ -49,7 +52,7 @@ int main(void) {
 
         //Produce error message if input number doesn't fit allowed parameters
         if (user_input < sel_min || user_input > sel_max) {
-            printf("%s", error_message); //Produces error message if input number doesn't fit parameters
+            printf("Input out of range! (%d not in %d-%d)\n", user_input, sel_min, sel_max);
             continue;
         }
 
