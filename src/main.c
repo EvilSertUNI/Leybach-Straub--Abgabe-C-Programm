@@ -8,13 +8,16 @@ static const int sel_max = sel_exit;
 
 int main(void) {
 
-    // Defining developer names and creating the developer structs with it
-    const char dev1_name[20] = "Ferdinand";
-    const char dev1_alias[20] = "Evil_Sert";
-    const Developer dev1 = create_developer(dev1_name, dev1_alias);
-    const char dev2_name[20] = "Simon";
-    const char dev2_alias[20] = "Der Allgäuer";
-    const Developer dev2 = create_developer(dev2_name, dev2_alias);
+    // Defining developer names
+    DeveloperInit developer_data[] = {
+        { "Ferdinand", "Evil_Sert" },
+        { "Simon", "Der Allgäuer" },
+        { NULL, NULL },
+    };
+
+    // Dynamic allocation of developers
+    const Developer *dev1 = developer_new(NULL, developer_data[0][0], developer_data[0][1]);
+    const Developer *dev2 = developer_new(NULL, developer_data[1][0], developer_data[1][1]);
 
     // Creating the actual logo struct
     const Group_Logo logo = create_group_logo(group_caption, developer1_logo, developer2_logo);
@@ -57,8 +60,8 @@ int main(void) {
         // Prints developers for cases sel_developers and sel_group
         if (user_input == sel_developers || user_input == sel_group){
             printf("***********************\n");
-            print_developer(&dev1);
-            print_developer(&dev2);
+            print_developer(dev1);
+            print_developer(dev2);
             printf("***********************\n");
         }
     }

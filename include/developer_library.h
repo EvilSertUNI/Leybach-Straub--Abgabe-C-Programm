@@ -7,12 +7,21 @@
 // Developer->name = "some string" would not work, i.e. nobody can
 // get married and the alias cannot be changed
 // Developer struct containing two addresses of inmutable strings
-typedef struct {
+typedef struct Developer Developer;
+struct Developer {
     const char* name;
     const char* alias;
-} Developer;
+};
 
-extern Developer create_developer(const char* name, const char* alias);
+// typedef for static initialization of developer data
+typedef const char * DeveloperInit [2];
+
+// constructor and destructor for Developer
+extern Developer *developer_new(Developer *dev, const char* name, const char* alias);
+extern void developer_delete(Developer *dev);
+
+// methods for Developer
+extern void print_developer(const Developer* dev);
 
 // Group_Logo
 typedef struct{
@@ -33,7 +42,6 @@ extern const char developer2_logo[];
 // functions, to print all statements needed for the programm
 extern void print_main_menu(void);
 extern void print_logo(const Group_Logo* logo);
-extern void print_developer(const Developer* dev);
 
 extern void check_pointer(const void* ptr);
 
