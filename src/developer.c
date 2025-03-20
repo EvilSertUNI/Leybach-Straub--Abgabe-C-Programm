@@ -12,6 +12,7 @@ Developer *developer_new(Developer *dev, const char* name, const char* alias) {
         dev = (Developer *) malloc(sizeof(Developer));
         assert(dev != NULL);
     }
+    dev->next = NULL;
     dev->name = name;
     dev->alias = alias;
     return dev;
@@ -38,4 +39,41 @@ void developer_print(const Developer* dev) {
     printf("alias: %s\n", dev->alias);
     printf("========================\n");
     return;
+}
+
+// Developer list
+Developers _developers = { .first = NULL, .last = NULL };
+Developers *developers = &_developers;
+
+// Developer list methods
+void devs_add_developer(Developers *devs, Developer *dev) {
+    assert(dev != NULL);
+    if (devs->first == NULL) {
+        devs->first = dev;
+    }
+    if (devs->last != NULL) {
+        devs->last->next = dev;
+    }
+    devs->last = dev;
+}
+
+void devs_add_developers(Developers *devs, DeveloperInit *data) {
+    Developer *dev;
+    while (data[0][0] != NULL) {
+        dev = developer_new(NULL, data[0][0], data[0][1]);
+        devs_add_developer(devs, dev);
+        data++;
+    }
+}
+
+void devs_print_all (Developers *devs) {
+    printf("***********************\n");
+    Developer *dev = devs->first;
+    // Explicit `if (dev != NULL)` is always better than implicit `if
+    // (dev)`, since it relates what the intended purpose is.
+    while (dev != NULL) {
+        developer_print(dev);
+        dev = dev->next;
+    }
+    printf("***********************\n");
 }

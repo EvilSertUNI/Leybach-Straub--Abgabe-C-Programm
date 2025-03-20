@@ -9,6 +9,7 @@
 // Developer struct containing two addresses of inmutable strings
 typedef struct Developer Developer;
 struct Developer {
+    Developer *next;
     const char* name;
     const char* alias;
 };
@@ -22,6 +23,22 @@ extern void developer_delete(Developer *dev);
 
 // methods for Developer
 extern void developer_print(const Developer* dev);
+
+// Developer List
+// A single linked list allows for simple dynamic manipulation of
+// developers without the arbitrary limits of an array.
+typedef struct Developers Developers;
+struct Developers {
+    Developer *first;
+    Developer *last;
+};
+
+// methods for Developers
+extern void devs_add_developer(Developers *devs, Developer *dev);
+extern void devs_add_developers(Developers *devs, DeveloperInit *data);
+extern void devs_print_all(Developers *devs);
+
+extern Developers *developers;
 
 // Group_Logo
 typedef struct{

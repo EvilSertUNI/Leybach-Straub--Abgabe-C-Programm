@@ -14,10 +14,7 @@ int main(void) {
         { "Simon", "Der Allgäuer" },
         { NULL, NULL },
     };
-
-    // Dynamic allocation of developers
-    const Developer *dev1 = developer_new(NULL, developer_data[0][0], developer_data[0][1]);
-    const Developer *dev2 = developer_new(NULL, developer_data[1][0], developer_data[1][1]);
+    devs_add_developers(developers, developer_data);
 
     // Creating the actual logo struct
     const Group_Logo logo = create_group_logo(group_caption, developer1_logo, developer2_logo);
@@ -59,10 +56,7 @@ int main(void) {
 
         // Prints developers for cases sel_developers and sel_group
         if (user_input == sel_developers || user_input == sel_group){
-            printf("***********************\n");
-            developer_print(dev1);
-            developer_print(dev2);
-            printf("***********************\n");
+            devs_print_all(developers);
         }
     }
     return 0;
