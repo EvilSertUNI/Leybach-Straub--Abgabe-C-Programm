@@ -21,7 +21,7 @@ extern Developer *developer_new(Developer *dev, const char* name, const char* al
 extern void developer_delete(Developer *dev);
 
 // methods for Developer
-extern void print_developer(const Developer* dev);
+extern void developer_print(const Developer* dev);
 
 // Group_Logo
 typedef struct{

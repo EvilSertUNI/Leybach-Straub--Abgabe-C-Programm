@@ -60,8 +60,8 @@ int main(void) {
         // Prints developers for cases sel_developers and sel_group
         if (user_input == sel_developers || user_input == sel_group){
             printf("***********************\n");
-            print_developer(dev1);
-            print_developer(dev2);
+            developer_print(dev1);
+            developer_print(dev2);
             printf("***********************\n");
         }
     }

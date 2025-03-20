@@ -28,3 +28,14 @@ void developer_delete(Developer *dev) {
     dev->alias = NULL;
     free(dev);
 }
+
+// Prints Developer struct
+void developer_print(const Developer* dev) {
+    check_pointer(dev);
+    printf("========================\n");
+    printf("Developer:\n");
+    printf("name: %s\n", dev->name);
+    printf("alias: %s\n", dev->alias);
+    printf("========================\n");
+    return;
+}

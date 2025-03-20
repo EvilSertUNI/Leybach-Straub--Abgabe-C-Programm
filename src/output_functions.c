@@ -14,17 +14,6 @@ void print_main_menu(void) {
     return;
 }
 
-// Prints Developer struct
-void print_developer(const Developer* dev) {
-    check_pointer(dev);
-    printf("========================\n");
-    printf("Developer:\n");
-    printf("name: %s\n", dev->name);
-    printf("alias: %s\n", dev->alias);
-    printf("========================\n");
-    return;
-}
-
 // Prints Group_Logo struct
 void print_logo(const Group_Logo* logo) {
     check_pointer(logo);
