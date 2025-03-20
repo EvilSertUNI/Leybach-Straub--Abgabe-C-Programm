@@ -35,8 +35,8 @@ struct Developers {
 
 // methods for Developers
 extern void devs_add_developer(Developers *devs, Developer *dev);
-extern void devs_add_developers(Developers *devs, DeveloperInit *data);
-extern void devs_print_all(Developers *devs);
+extern void devs_add_developers(Developers *devs, const DeveloperInit *data);
+extern void devs_print_all(const Developers *devs);
 
 extern Developers *developers;
 

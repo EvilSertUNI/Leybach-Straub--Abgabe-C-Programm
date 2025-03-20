@@ -9,7 +9,7 @@ static const int sel_max = sel_exit;
 int main(void) {
 
     // Defining developer names
-    DeveloperInit developer_data[] = {
+    const DeveloperInit developer_data[] = {
         { "Ferdinand", "Evil_Sert" },
         { "Simon", "Der Allgäuer" },
         { NULL, NULL },

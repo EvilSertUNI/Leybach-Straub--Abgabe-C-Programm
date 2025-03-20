@@ -57,7 +57,7 @@ void devs_add_developer(Developers *devs, Developer *dev) {
     devs->last = dev;
 }
 
-void devs_add_developers(Developers *devs, DeveloperInit *data) {
+void devs_add_developers(Developers *devs, const DeveloperInit *data) {
     Developer *dev;
     while (data[0][0] != NULL) {
         dev = developer_new(NULL, data[0][0], data[0][1]);
@@ -66,7 +66,7 @@ void devs_add_developers(Developers *devs, DeveloperInit *data) {
     }
 }
 
-void devs_print_all (Developers *devs) {
+void devs_print_all (const Developers *devs) {
     printf("***********************\n");
     Developer *dev = devs->first;
     // Explicit `if (dev != NULL)` is always better than implicit `if
