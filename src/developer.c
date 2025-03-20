@@ -47,6 +47,7 @@ Developers *developers = &_developers;
 
 // Developer list methods
 void devs_add_developer(Developers *devs, Developer *dev) {
+    assert(devs != NULL);
     assert(dev != NULL);
     if (devs->first == NULL) {
         devs->first = dev;
@@ -59,6 +60,8 @@ void devs_add_developer(Developers *devs, Developer *dev) {
 
 void devs_add_developers(Developers *devs, const DeveloperInit *data) {
     Developer *dev;
+    assert(devs != NULL);
+    assert(data != NULL);
     while (data[0][0] != NULL) {
         dev = developer_new(NULL, data[0][0], data[0][1]);
         devs_add_developer(devs, dev);
@@ -68,7 +71,9 @@ void devs_add_developers(Developers *devs, const DeveloperInit *data) {
 
 void devs_print_all (const Developers *devs) {
     printf("***********************\n");
-    Developer *dev = devs->first;
+    Developer *dev;
+    assert(devs != NULL);
+    dev = devs->first;
     // Explicit `if (dev != NULL)` is always better than implicit `if
     // (dev)`, since it relates what the intended purpose is.
     while (dev != NULL) {
