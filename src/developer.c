@@ -4,7 +4,9 @@
 #include "developer_library.h"
 
 // constructor for Developer
-Developer *developer_new(Developer *dev, const char* name, const char* alias) {
+Developer      *
+developer_new(Developer * dev, const char *name, const char *alias)
+{
     // Validating input pointers
     assert(name != NULL);
     assert(alias != NULL);
@@ -19,19 +21,25 @@ Developer *developer_new(Developer *dev, const char* name, const char* alias) {
 }
 
 // destructor for Developer
-void developer_delete(Developer *dev) {
+void
+developer_delete(Developer * dev)
+{
     if (dev == NULL) {
-        fprintf ( stderr, "warning: double free of developer\n" );
+        fprintf(stderr, "warning: double free of developer\n");
         return;
     }
-    /* facilitate detection of access to deleted objects */
+    /*
+     * facilitate detection of access to deleted objects 
+     */
     dev->name = NULL;
     dev->alias = NULL;
     free(dev);
 }
 
 // Prints Developer struct
-void developer_print(const Developer* dev) {
+void
+developer_print(const Developer * dev)
+{
     check_pointer(dev);
     printf("========================\n");
     printf("Developer:\n");
@@ -42,11 +50,13 @@ void developer_print(const Developer* dev) {
 }
 
 // Developer list
-Developers _developers = { .first = NULL, .last = NULL };
-Developers *developers = &_developers;
+Developers      _developers = {.first = NULL,.last = NULL };
+Developers     *developers = &_developers;
 
 // Developer list methods
-void devs_add_developer(Developers *devs, Developer *dev) {
+void
+devs_add_developer(Developers * devs, Developer * dev)
+{
     assert(devs != NULL);
     assert(dev != NULL);
     if (devs->first == NULL) {
@@ -58,8 +68,10 @@ void devs_add_developer(Developers *devs, Developer *dev) {
     devs->last = dev;
 }
 
-void devs_add_developers(Developers *devs, const DeveloperInit *data) {
-    Developer *dev;
+void
+devs_add_developers(Developers * devs, const DeveloperInit * data)
+{
+    Developer      *dev;
     assert(devs != NULL);
     assert(data != NULL);
     while (data[0][0] != NULL) {
@@ -69,9 +81,11 @@ void devs_add_developers(Developers *devs, const DeveloperInit *data) {
     }
 }
 
-void devs_print_all (const Developers *devs) {
+void
+devs_print_all(const Developers * devs)
+{
     printf("***********************\n");
-    Developer *dev;
+    Developer      *dev;
     assert(devs != NULL);
     dev = devs->first;
     // Explicit `if (dev != NULL)` is always better than implicit `if
